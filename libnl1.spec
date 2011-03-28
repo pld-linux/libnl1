@@ -41,7 +41,7 @@ Summary:	Header files for libnl1 library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libnl1
 Group:		Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}-%{release}
-Obsoletes:	libnl-devel
+Conflicts:	libnl-devel
 
 %description devel
 Header files for libnl1 library.
@@ -54,7 +54,7 @@ Summary:	Static libnl1 library
 Summary(pl.UTF-8):	Statyczna biblioteka libnl1
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{epoch}:%{version}-%{release}
-Obsoletes:	libnl-static
+Conflicts:	libnl-static
 
 %description static
 Static libnl1 library.
