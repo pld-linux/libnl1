@@ -7,14 +7,22 @@ Summary(pl.UTF-8):	Biblioteka do obsługi gniazd netlink
 %define	orgname	libnl
 Name:		%{orgname}1
 Version:	1.1
-Release:	1
+Release:	2
 License:	LGPL v2.1
 Group:		Libraries
 Source0:	http://people.suug.ch/~tgr/libnl/files/%{orgname}-%{version}.tar.gz
 # Source0-md5:	ae970ccd9144e132b68664f98e7ceeb1
-Patch0:		%{orgname}-static.patch
-Patch1:		%{orgname}-ULONG_MAX.patch
-Patch2:		%{orgname}-gcc44.patch
+Patch1:		libnl-1.0-pre5-static.patch
+Patch2:		libnl-1.0-pre5-debuginfo.patch
+Patch3:		libnl-1.0-pre8-use-vasprintf-retval.patch
+Patch4:		libnl-1.0-pre8-more-build-output.patch
+Patch5:		libnl-1.1-include-limits-h.patch
+Patch6:		libnl-1.1-doc-inlinesrc.patch
+Patch7:		libnl-1.1-no-extern-inline.patch
+Patch8:		libnl-1.1-align.patch
+Patch9:		libnl-1.1-disable-static-by-default.patch
+Patch10:	libnl-1.1-fix-portmap-position.patch
+Patch11:	libnl-1.1-threadsafe-port-allocation.patch
 URL:		http://www.infradead.org/~tgr/libnl/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -31,8 +39,8 @@ provides an easy to use interface for raw netlink message but also
 netlink family specific APIs.
 
 %description -l pl.UTF-8
-libnl1 jest biblioteką dla aplikacji rozmawiających z gniazdem netlink.
-Udostępnia łatwy w użyciu interfejs do korzystania z surowych
+libnl1 jest biblioteką dla aplikacji rozmawiających z gniazdem
+netlink. Udostępnia łatwy w użyciu interfejs do korzystania z surowych
 wiadomości netlink, a także API specyficzne dla rodziny gniazd
 netlink.
 
@@ -77,15 +85,24 @@ wygenerowane ze źródeł za pomocą doxygena.
 
 %prep
 %setup -q -n %{orgname}-%{version}
-%patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
+%patch4 -p1
+%patch5 -p1
+%patch6 -p1
+%patch7 -p1
+%patch8 -p1
+%patch9 -p1
+%patch10 -p1
+%patch11 -p1
 
 %build
 %{__aclocal}
 %{__autoconf}
 
 %configure \
+	--enable-static \
 	--enable-verbose-errors
 
 %{__make}
