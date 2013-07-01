@@ -7,7 +7,7 @@ Summary(pl.UTF-8):	Biblioteka do obsługi gniazd netlink
 %define	orgname	libnl
 Name:		%{orgname}1
 Version:	1.1
-Release:	3
+Release:	4
 License:	LGPL v2.1
 Group:		Libraries
 Source0:	http://people.suug.ch/~tgr/libnl/files/%{orgname}-%{version}.tar.gz
