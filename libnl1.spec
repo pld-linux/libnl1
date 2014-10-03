@@ -1,28 +1,19 @@
 #
 # Conditional build:
 %bcond_without	apidocs		# don't build api docs
-#
+
 Summary:	Netlink sockets library
 Summary(pl.UTF-8):	Biblioteka do obsługi gniazd netlink
-%define	orgname	libnl
-Name:		%{orgname}1
-Version:	1.1
-Release:	4
+Name:		libnl1
+Version:	1.1.4
+Release:	1
 License:	LGPL v2.1
 Group:		Libraries
-Source0:	http://people.suug.ch/~tgr/libnl/files/%{orgname}-%{version}.tar.gz
-# Source0-md5:	ae970ccd9144e132b68664f98e7ceeb1
-Patch1:		libnl-1.0-pre5-static.patch
-Patch2:		libnl-1.0-pre5-debuginfo.patch
-Patch3:		libnl-1.0-pre8-use-vasprintf-retval.patch
+Source0:	http://people.suug.ch/~tgr/libnl/files/libnl-%{version}.tar.gz
+# Source0-md5:	580cb878be536804daca87fb75ae46cc
 Patch4:		libnl-1.0-pre8-more-build-output.patch
 Patch5:		libnl-1.1-include-limits-h.patch
 Patch6:		libnl-1.1-doc-inlinesrc.patch
-Patch7:		libnl-1.1-no-extern-inline.patch
-Patch8:		libnl-1.1-align.patch
-Patch9:		libnl-1.1-disable-static-by-default.patch
-Patch10:	libnl-1.1-fix-portmap-position.patch
-Patch11:	libnl-1.1-threadsafe-port-allocation.patch
 URL:		http://www.infradead.org/~tgr/libnl/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -84,18 +75,10 @@ Dokumentacja API biblioteki libnl1 oraz wprowadzenie w formacie HTML
 wygenerowane ze źródeł za pomocą doxygena.
 
 %prep
-%setup -q -n %{orgname}-%{version}
-%patch1 -p1
-%patch2 -p1
-%patch3 -p1
+%setup -q -n libnl-%{version}
 %patch4 -p1
 %patch5 -p1
 %patch6 -p1
-%patch7 -p1
-%patch8 -p1
-%patch9 -p1
-%patch10 -p1
-%patch11 -p1
 
 %build
 %{__aclocal}
@@ -110,7 +93,6 @@ wygenerowane ze źródeł za pomocą doxygena.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
