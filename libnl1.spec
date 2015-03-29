@@ -6,7 +6,7 @@ Summary:	Netlink sockets library
 Summary(pl.UTF-8):	Biblioteka do obsługi gniazd netlink
 Name:		libnl1
 Version:	1.1.4
-Release:	2
+Release:	3
 License:	LGPL v2.1
 Group:		Libraries
 Source0:	http://people.suug.ch/~tgr/libnl/files/libnl-%{version}.tar.gz
@@ -65,6 +65,9 @@ Statyczna biblioteka libnl1.
 Summary:	libnl1 library API documentation
 Summary(pl.UTF-8):	Dokumentacja API biblioteki libnl1
 Group:		Documentation
+%if "%{_rpmversion}" >= "5"
+BuildArch:	noarch
+%endif
 
 %description apidocs
 Documentation for libnl1 library API and guides in HTML format
