@@ -65,9 +65,7 @@ Statyczna biblioteka libnl1.
 Summary:	libnl1 library API documentation
 Summary(pl.UTF-8):	Dokumentacja API biblioteki libnl1
 Group:		Documentation
-%if "%{_rpmversion}" >= "5"
 BuildArch:	noarch
-%endif
 
 %description apidocs
 Documentation for libnl1 library API and guides in HTML format
