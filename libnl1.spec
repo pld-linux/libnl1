@@ -77,9 +77,9 @@ wygenerowane ze źródeł za pomocą doxygena.
 
 %prep
 %setup -q -n libnl-%{version}
-%patch4 -p1
-%patch5 -p1
-%patch6 -p1
+%patch -P4 -p1
+%patch -P5 -p1
+%patch -P6 -p1
 
 %build
 %{__aclocal}
